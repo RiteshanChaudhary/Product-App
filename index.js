@@ -1,10 +1,12 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const connectDatabase = require("./config/dbconnect");
 const productRoutes = require("./routes/user.routes");
 const { type } = require("os");
-const DB_URI = "mongodb://127.0.0.1:27017/crud-products";
-const PORT = 8080;
+const DB_URI = process.env.DB_URI;
+const PORT = process.env.PORT;
 
 // connect db
 connectDatabase(DB_URI);
